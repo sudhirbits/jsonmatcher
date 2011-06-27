@@ -1,6 +1,6 @@
 package com.sudhir.json.matchers;
 
-import static com.sudhir.json.matchers.Matchers.hasKey;
+import static com.sudhir.json.matchers.JsonMatchers.hasKey;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.startsWith;
@@ -13,7 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MatchersTest {
+public class JsonMatchersTest {
 	@Before
 	public void setUp() throws Exception {		
 	}

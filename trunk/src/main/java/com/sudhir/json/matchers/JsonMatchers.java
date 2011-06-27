@@ -6,9 +6,9 @@ import org.hamcrest.Matcher;
 import org.json.JSONObject;
 
 
-public final class Matchers {
+public final class JsonMatchers {
 
-	private Matchers() {
+	private JsonMatchers() {
 		// do not initialize. This is a matcher factory.
 	}
 	
