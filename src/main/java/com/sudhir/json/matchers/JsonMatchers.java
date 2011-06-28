@@ -23,4 +23,8 @@ public final class JsonMatchers {
 	public static Matcher<JSONObject> hasKey(Matcher<String>... keyMatchers) {
 		return HasKeyMatcher.hasKey(allOf(keyMatchers));
 	}
+
+	public static Matcher<JSONObject> hasPath(String path) {
+		return HasPathMatcher.hasPath(path);
+	}
 }

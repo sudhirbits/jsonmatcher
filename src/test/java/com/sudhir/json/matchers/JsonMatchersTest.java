@@ -1,10 +1,8 @@
 package com.sudhir.json.matchers;
 
-import static com.sudhir.json.matchers.JsonMatchers.hasKey;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.endsWith;
-import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertThat;
+import static com.sudhir.json.matchers.JsonMatchers.*;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.*;
 
 import org.hamcrest.Matcher;
 import org.json.JSONException;
@@ -61,5 +59,29 @@ public class JsonMatchersTest {
 	public void verifyThatPreconditionsAreCheckedForHasKey2() throws JSONException {
 		JSONObject json = new JSONObject(JSON_STRING_EMPTY_KEY);
 		assertThat(json, hasKey((Matcher<String>) null));
+	}
+	
+	public static final String JSON_STRING_FOR_PATH_TEST = 
+		"{" +
+			"json1: {" +
+				"json2: {" +
+					"json3: [" +
+						"{" +
+							"field:value" + 
+						"}" +
+					"], " +
+					"json4: {" +
+						"field4:value4" +
+					"}" +
+				"}" + 
+			"}" + 
+		"}";
+	@SuppressWarnings("unchecked")
+	@Test
+	public void verifyThatMatcherIsAbleToLocatePath() throws JSONException {		
+		JSONObject json = new JSONObject(JSON_STRING_FOR_PATH_TEST);
+		assertThat(json, allOf(
+				hasPath("json1.json2.json3[0].field"), 
+				hasPath("json1.json2.json4.field4")));
 	}
 }
