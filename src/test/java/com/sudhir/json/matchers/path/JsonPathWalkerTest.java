@@ -14,7 +14,7 @@ public class JsonPathWalkerTest {
 
 	@Test
 	public void testJsonPathWalker() {
-		JsonPathWalker pathWalker = new JsonPathWalker("json.json1.json3.[0].key");
+		JsonPathWalker pathWalker = JsonPathWalker.forPath("json.json1.json3.[0].key");
 		System.out.println(pathWalker.print());
 		JsonPathNode<?> node = pathWalker.topNode();
 		assertNotNull(node);
@@ -31,7 +31,7 @@ public class JsonPathWalkerTest {
 
 	@Test
 	public void testJsonPathWalkerArrayOfArrays() {
-		JsonPathWalker pathWalker = new JsonPathWalker("json.json1[0].json3.[0][1].key");
+		JsonPathWalker pathWalker = JsonPathWalker.forPath("json.json1[0].json3.[0][1].key");
 		System.out.println(pathWalker.print());
 		JsonPathNode<?> node = pathWalker.topNode();
 		assertNotNull(node);
@@ -66,7 +66,17 @@ public class JsonPathWalkerTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testChainIsAbleToRetrieve() throws JSONException {
-		JsonPathWalker pathWalker = new JsonPathWalker("json1.json2.json3[0]");
+		JsonPathWalker pathWalker = JsonPathWalker.forPath("json1.json2.json3[0]");
+		System.out.println(pathWalker.print());
+		JsonPathNode<JSONObject> node = (JsonPathNode<JSONObject>) pathWalker.topNode();
+		JsonTypeHolder returned = node.process(JsonTypeHolder.of(new JSONObject(JSON_FOR_TEST)));
+		System.out.println(returned);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test(expected=JSONException.class)
+	public void testChainIsAbleToRetrieve1() throws JSONException {
+		JsonPathWalker pathWalker = JsonPathWalker.forPath("json1.json2.json56[0]");
 		System.out.println(pathWalker.print());
 		JsonPathNode<JSONObject> node = (JsonPathNode<JSONObject>) pathWalker.topNode();
 		JsonTypeHolder returned = node.process(JsonTypeHolder.of(new JSONObject(JSON_FOR_TEST)));

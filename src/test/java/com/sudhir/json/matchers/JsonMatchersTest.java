@@ -84,4 +84,10 @@ public class JsonMatchersTest {
 				hasPath("json1.json2.json3[0].field"), 
 				hasPath("json1.json2.json4.field4")));
 	}
+		
+	@Test
+	public void verifyThatMatcherReturnsFalseWhenPathIsNotFound() throws JSONException {		
+		JSONObject json = new JSONObject(JSON_STRING_FOR_PATH_TEST);
+		assertThat(hasPath("json1.json2.json3[8].field").matches(json), is(false));
+	}
 }
