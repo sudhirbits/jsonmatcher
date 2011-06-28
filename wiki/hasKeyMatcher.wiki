@@ -1,7 +1,7 @@
 #Introduction to the hasKey matcher
 
 = Introduction =
-JsonMatchers hasKey API returns a Matcher<JSONObject> which can be used for development/tests.
+JsonMatchers hasKey API returns a {{{Matcher<JSONObject>}}} which can be used for development/tests.
 
 = Details =
 {{{	
@@ -17,5 +17,6 @@ JSONObject json = new JSONObject("{" +
 assertThat(json, hasKey( 
   startsWith("start"),
   endsWith("end"),   
-  containsString("Contains")));
+  containsString("Contains")
+));
 }}}
