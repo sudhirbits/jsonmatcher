@@ -11,11 +11,9 @@ import com.sudhir.json.matchers.path.JsonPathWalker;
 public class HasPathMatcher extends TypeSafeMatcher<JSONObject> {
 
 	private String path;
-	private JsonPathWalker jsonPathWalker;
 
 	public HasPathMatcher(String path) {
 		this.path = path;
-		this.jsonPathWalker = new JsonPathWalker(path);
 	}
 
 	public static Matcher<JSONObject> hasPath(String path) {
@@ -25,7 +23,7 @@ public class HasPathMatcher extends TypeSafeMatcher<JSONObject> {
 	@Override
 	public boolean matchesSafely(JSONObject item) {
 		try {
-			return jsonPathWalker.process(item).get() != null;
+			return JsonPathWalker.forPath(path).walk(item).get() != null;
 		} catch (JSONException e) {
 			return false;
 		}
