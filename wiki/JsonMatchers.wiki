@@ -1,8 +1,8 @@
-#Hamcrest Matcher Library for JSON Objects (org.json)
+Hamcrest Matcher Library for JSON Objects (org.json)
 = Introduction =
 
 Pages and pages of unit tests for verification of JSONObjects and inclination of using Hamcrest matchers have resulted in this.
 
 = Details =
-hasKeyMatcher
-hasPathMatcher
+# hasKeyMatcher
+# hasPathMatcher
