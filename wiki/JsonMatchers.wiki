@@ -8,7 +8,7 @@ Pages and pages of unit tests for verification of JSONObjects and inclination of
   # [hasPathMatcher]
 
 == Dependencies ==
-  # [http://hamcrest.googlecode.com/files/hamcrest-all-1.1.jar|hamcrest-all 1.1]
+  # [http://hamcrest.googlecode.com/files/hamcrest-all-1.1.jar {{{hamcrest-all v1.1}}}]
   # google guava r09
   # org.json 20090211
   # junit 4.8.2 (tests only)
