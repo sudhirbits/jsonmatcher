@@ -1,0 +1,9 @@
+=== 27-Jun-2011 ===
+  * {{{JsonMatchers.hasKey}}} implementation completed with tests.
+
+=== 28-Jun-2011 ===
+  * {{{JsonMatchers.hasPath}}} implementation completed with tests.
+  * A re-usable {{{JsonPathWalker}}} has been used in hasPath
+
+=== 29-Jun-2011 ===
+  * Repository (snapshots/releases) creation initiated - [https://issues.sonatype.org/browse/OSSRH-1875 track]
