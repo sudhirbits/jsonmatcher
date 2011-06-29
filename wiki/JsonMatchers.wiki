@@ -9,35 +9,35 @@ Pages and pages of unit tests for verification of JSONObjects and inclination of
 
 == Dependencies ==
   # [http://hamcrest.googlecode.com/files/hamcrest-all-1.1.jar hamcrest-all v1.1]
-<code language="xml">
+{{{
     <dependency>
           <groupId>org.hamcrest</groupId>
           <artifactId>hamcrest-all</artifactId>
           <version>1.1</version>
     </dependency>
-</code>
+}}}
   # [http://guava-libraries.googlecode.com/files/guava-r09.zip google guava r09]
-<code language="xml">
+{{{
     <dependency>
           <groupId>com.google.guava</groupId>
           <artifactId>guava</artifactId>
           <version>r09</version>
     </dependency>
-</code>
+}}}
   # org.json 20090211
-<code language="xml">
+{{{
     <dependency>
           <groupId>org.json</groupId>
           <artifactId>json</artifactId>
           <version>20090211</version>
     </dependency>
-</code>
+}}}
   # junit 4.8.2 (tests only)
-<code language="xml">
+{{{
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.8.2</version>
       <scope>test</scope>
     </dependency>
-</code>
+}}}
