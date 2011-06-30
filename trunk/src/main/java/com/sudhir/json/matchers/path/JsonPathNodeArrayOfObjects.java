@@ -14,10 +14,12 @@ public class JsonPathNodeArrayOfObjects extends AbstractJsonPathNode<JSONArray> 
 
 	@Override
 	public JsonTypeHolder<?> process(JsonTypeHolder<JSONArray> holder) throws JSONException {
-		return fwdToChain(JsonTypeHolder.of(holder.get().get(index())));
+		int index = index();
+		return fwdToChain(JsonTypeHolder.of(holder.get().get(index)));
 	}
 
 	private int index() {
-		return Integer.valueOf(nodeKey.replaceAll("\\[", "").replaceAll("\\]", ""));
+		String indexInArray = nodeKey.replaceAll("\\[", "").replaceAll("\\]", "");
+		return Integer.valueOf(indexInArray);
 	}		
 }

@@ -26,7 +26,7 @@ public class JsonMatchersTest {
 	@Test 
 	public void verifyThatMatcherIsAbleToMatchKey() throws JSONException {
 		JSONObject json = new JSONObject(JSON_STRING_FOR_TEST);
-		assertThat(json, hasKey("key"));
+		assertThat(json, hasJsonKey("key"));
 	}
 	
 	private static final String JSON_STRING_FOR_COMBINATION_TEST = "{" +
@@ -37,7 +37,7 @@ public class JsonMatchersTest {
 	public void verifyThatMatcherIsAbleToMatchCombinationOfCriteria() throws JSONException {
 		JSONObject json = new JSONObject(JSON_STRING_FOR_COMBINATION_TEST);
 		assertThat(json, 
-				hasKey(startsWith("start"),endsWith("end"),containsString("Contains")));		
+				hasJsonKey(startsWith("start"),endsWith("end"),containsString("Contains")));		
 	}
 	
 	private static final String JSON_STRING_EMPTY_KEY = "{" +
@@ -46,19 +46,19 @@ public class JsonMatchersTest {
 	@Test
 	public void verifyThatMatcherIsAbleToMatchAnEmptyKey() throws JSONException {		
 		JSONObject json = new JSONObject(JSON_STRING_EMPTY_KEY);
-		assertThat(json, hasKey(""));
+		assertThat(json, hasJsonKey(""));
 	}
 	
 	@Test(expected = NullPointerException.class) 
 	public void verifyThatPreconditionsAreCheckedForHasKey() throws JSONException {
 		JSONObject json = new JSONObject(JSON_STRING_EMPTY_KEY);
-		assertThat(json, hasKey((String) null));
+		assertThat(json, hasJsonKey((String) null));
 	}
 	
 	@Test(expected = NullPointerException.class) 
 	public void verifyThatPreconditionsAreCheckedForHasKey2() throws JSONException {
 		JSONObject json = new JSONObject(JSON_STRING_EMPTY_KEY);
-		assertThat(json, hasKey((Matcher<String>) null));
+		assertThat(json, hasJsonKey((Matcher<String>) null));
 	}
 	
 	public static final String JSON_STRING_FOR_PATH_TEST = 
@@ -81,13 +81,13 @@ public class JsonMatchersTest {
 	public void verifyThatMatcherIsAbleToLocatePath() throws JSONException {		
 		JSONObject json = new JSONObject(JSON_STRING_FOR_PATH_TEST);
 		assertThat(json, allOf(
-				hasPath("json1.json2.json3[0].field"), 
-				hasPath("json1.json2.json4.field4")));
+				hasJsonPath("json1.json2.json3[0].field"), 
+				hasJsonPath("json1.json2.json4.field4")));
 	}
 		
 	@Test
 	public void verifyThatMatcherReturnsFalseWhenPathIsNotFound() throws JSONException {		
 		JSONObject json = new JSONObject(JSON_STRING_FOR_PATH_TEST);
-		assertThat(hasPath("json1.json2.json3[8].field").matches(json), is(false));
+		assertThat(hasJsonPath("json1.json2.json3[8].field").matches(json), is(false));
 	}
 }
