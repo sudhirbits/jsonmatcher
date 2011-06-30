@@ -47,7 +47,7 @@ public abstract class AbstractJsonPathNode<U> implements JsonPathNode<U> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <N> JsonTypeHolder<?> fwdToChain(JsonTypeHolder<N> jsonTypeHolder) throws JSONException {
+	protected <N> JsonTypeHolder<?> fwdToChain(JsonTypeHolder<N> jsonTypeHolder) throws JSONException {
 		if(!doesChainEndHere()) {
 			return next.process((JsonTypeHolder) jsonTypeHolder);
 		} 

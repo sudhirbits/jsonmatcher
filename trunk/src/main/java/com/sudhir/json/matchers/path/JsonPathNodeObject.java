@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.sudhir.json.matchers.path;
 
 import org.json.JSONException;
