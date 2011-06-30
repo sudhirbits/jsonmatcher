@@ -9,6 +9,7 @@
   * Repository (snapshots/releases) creation initiated - [https://issues.sonatype.org/browse/OSSRH-1875 track]
 
 === 30-Jun-2011 ===
-Repository (snapshots/releases) creation completed (Thanks to [https://issues.sonatype.org/secure/ViewProfile.jspa?name=juven Juven])
-  * Deploy snapshot artifacts into [https://oss.sonatype.org/content/repositories/snapshots repository]
-  * Deploy release artifacts into the [https://oss.sonatype.org/service/local/staging/deploy/maven2 staging repository]
+  * Repository (snapshots/releases) creation completed (Thanks to [https://issues.sonatype.org/secure/ViewProfile.jspa?name=juven Juven])
+  # Deploy snapshot artifacts into [https://oss.sonatype.org/content/repositories/snapshots repository]
+  # Deploy release artifacts into the [https://oss.sonatype.org/service/local/staging/deploy/maven2 staging repository]
+  * Repository creation verified and [https://oss.sonatype.org/content/repositories/snapshots/com/sudhir/utils/jsonmatchers/1.0-SNAPSHOT deploy completed]
