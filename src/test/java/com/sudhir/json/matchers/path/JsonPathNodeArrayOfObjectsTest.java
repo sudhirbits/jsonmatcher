@@ -1,9 +1,11 @@
 package com.sudhir.json.matchers.path;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
-import org.hamcrest.Matcher;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,10 +39,18 @@ public class JsonPathNodeArrayOfObjectsTest {
 	}
 	
 	@Test 
-	public void verifyThatTestClassWorksWithRightArguments() {
+	public void verifyThatTestClassWorksWithRightArgumentsZero() {
 		JsonPathNodeArrayOfObjects pathObject = new JsonPathNodeArrayOfObjects("[0]");
 		assertThat(pathObject, notNullValue(JsonPathNodeArrayOfObjects.class));
 		assertThat(pathObject.key(), is(equalTo("[0]")));
-		assertThat(pathObject.index(), is(0));
+		assertThat(pathObject.arrayIndex(), is(0));
+	}
+	
+	@Test 
+	public void verifyThatTestClassWorksWithRightArguments() {
+		JsonPathNodeArrayOfObjects pathObject = new JsonPathNodeArrayOfObjects("[23]");
+		assertThat(pathObject, notNullValue(JsonPathNodeArrayOfObjects.class));
+		assertThat(pathObject.key(), is(equalTo("[23]")));
+		assertThat(pathObject.arrayIndex(), is(23)); 
 	}
 }
