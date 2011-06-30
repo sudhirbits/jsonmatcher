@@ -8,16 +8,16 @@ import org.json.JSONObject;
 
 import com.sudhir.json.matchers.path.JsonPathWalker;
 
-public class HasPathMatcher extends TypeSafeMatcher<JSONObject> {
+public class HasJsonPathMatcher extends TypeSafeMatcher<JSONObject> {
 
 	private String path;
 
-	public HasPathMatcher(String path) {
+	public HasJsonPathMatcher(String path) {
 		this.path = path;
 	}
 
-	public static Matcher<JSONObject> hasPath(String path) {
-		return new HasPathMatcher(path);
+	public static Matcher<JSONObject> hasJsonPath(String path) {
+		return new HasJsonPathMatcher(path);
 	}
 
 	@Override

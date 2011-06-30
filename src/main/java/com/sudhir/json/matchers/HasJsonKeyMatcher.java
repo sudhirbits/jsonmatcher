@@ -10,10 +10,10 @@ import org.json.JSONObject;
 
 import static com.google.common.base.Preconditions.*;
 
-public class HasKeyMatcher extends TypeSafeMatcher<JSONObject> {
+public class HasJsonKeyMatcher extends TypeSafeMatcher<JSONObject> {
 	private Matcher<String> keyMatcher;	
 	
-	public HasKeyMatcher(Matcher<String> keyMatcher) {
+	public HasJsonKeyMatcher(Matcher<String> keyMatcher) {
 		super();
 		this.keyMatcher = keyMatcher;
 	}
@@ -37,13 +37,13 @@ public class HasKeyMatcher extends TypeSafeMatcher<JSONObject> {
 		keyMatcher.describeTo(description);
 	}
 	
-	public static Matcher<JSONObject> hasKey(String key) {
+	public static Matcher<JSONObject> hasJsonKey(String key) {
 		checkNotNull(key, "Cannot initialize with a NULL matcher");
-		return hasKey(equalTo(key));
+		return hasJsonKey(equalTo(key));
 	}
 	
-	public static Matcher<JSONObject> hasKey(Matcher<String> keyMatcher) {
+	public static Matcher<JSONObject> hasJsonKey(Matcher<String> keyMatcher) {
 		checkNotNull(keyMatcher, "Cannot initialize with a NULL matcher");
-		return new HasKeyMatcher(keyMatcher);
+		return new HasJsonKeyMatcher(keyMatcher);
 	}
 }
