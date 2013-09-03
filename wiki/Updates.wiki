@@ -13,3 +13,6 @@
     # Deploy snapshot artifacts into [https://oss.sonatype.org/content/repositories/snapshots repository]
     # Deploy release artifacts into the [https://oss.sonatype.org/service/local/staging/deploy/maven2 staging repository]
   * Repository creation verified and [https://oss.sonatype.org/content/repositories/snapshots/com/sudhir/utils/jsonmatchers/1.0-SNAPSHOT deploy completed]
+
+=== 03-Aug-2013 ===
+  * Defect fixes (#3) and oss sonatype repository pushes.
