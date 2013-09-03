@@ -1,9 +1,9 @@
 package com.sudhir.json.matchers;
 
-import static org.hamcrest.Matchers.allOf;
-
 import org.hamcrest.Matcher;
 import org.json.JSONObject;
+
+import static org.hamcrest.core.AllOf.allOf;
 
 /**
  * Builds Matcher&lt;JSONObject&gt; instances for JSON key/value 

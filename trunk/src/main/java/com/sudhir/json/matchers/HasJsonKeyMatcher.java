@@ -1,14 +1,14 @@
 package com.sudhir.json.matchers;
 
-import java.util.Iterator;
-
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import static org.hamcrest.Matchers.equalTo;
 import org.hamcrest.TypeSafeMatcher;
 import org.json.JSONObject;
 
-import static com.google.common.base.Preconditions.*;
+import java.util.Iterator;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+import static org.hamcrest.core.IsEqual.equalTo;
 
 public class HasJsonKeyMatcher extends TypeSafeMatcher<JSONObject> {
 	private Matcher<String> keyMatcher;	
