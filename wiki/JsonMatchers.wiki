@@ -8,6 +8,7 @@ Pages and pages of unit tests for verification of JSONObjects and inclination of
   # [hasPathMatcher]
 
 == Dependencies ==
+  # hamcrest
 {{{
     <dependency>
           <groupId>org.hamcrest</groupId>
@@ -20,6 +21,7 @@ Pages and pages of unit tests for verification of JSONObjects and inclination of
           <version>1.3</version>
     </dependency>
 }}}
+  # google guava libraries 
 {{{
     <dependency>
           <groupId>com.google.guava</groupId>
