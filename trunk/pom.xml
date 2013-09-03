@@ -8,7 +8,27 @@
 	<packaging>jar</packaging>
 
 	<name>jsonmatchers</name>
+    <description>A hamcrest extension for matching JSON objects</description>
 	<url>https://jsonmatcher.googlecode.com</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://code.google.com/p/jsonmatcher/source/browse</url>
+        <connection>scm:svn:https://jsonmatcher.googlecode.com/svn/trunk</connection>
+        <developerConnection>scm:svn:https://jsonmatcher.googlecode.com/svn/trunk</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <id>sudhirbits</id>
+            <name>SudhirR</name>
+            <email>sudhirbits[at]-nospam-gmail[dot]com</email>
+        </developer>
+    </developers>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
