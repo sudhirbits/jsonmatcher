@@ -1,28 +1,20 @@
 package com.sudhir.json.matchers;
 
-import static com.sudhir.json.matchers.JsonMatchers.*;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
-
 import org.hamcrest.Matcher;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class JsonMatchersTest {
-	@Before
-	public void setUp() throws Exception {		
-	}
+import static com.sudhir.json.matchers.JsonMatchers.hasJsonKey;
+import static com.sudhir.json.matchers.JsonMatchers.hasJsonPath;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
-	@After
-	public void tearDown() throws Exception {
-	}
-	
+public class JsonMatchersTest {
 	private static final String JSON_STRING_FOR_TEST = "{" +
 			"key:value" +
-		"}";	
+		"}";
+
 	@Test 
 	public void verifyThatMatcherIsAbleToMatchKey() throws JSONException {
 		JSONObject json = new JSONObject(JSON_STRING_FOR_TEST);
@@ -32,6 +24,7 @@ public class JsonMatchersTest {
 	private static final String JSON_STRING_FOR_COMBINATION_TEST = "{" +
 				"startsWithStartContainsAndEndsWithend:value" + 
 			"}";
+
 	@SuppressWarnings("unchecked")
 	@Test
 	public void verifyThatMatcherIsAbleToMatchCombinationOfCriteria() throws JSONException {
@@ -90,4 +83,22 @@ public class JsonMatchersTest {
 		JSONObject json = new JSONObject(JSON_STRING_FOR_PATH_TEST);
 		assertThat(hasJsonPath("json1.json2.json3[8].field").matches(json), is(false));
 	}
+
+    @Test
+    public void verifyThatMatcherIsAbleToLocatePathWithStarExpression() throws JSONException {
+        JSONObject json = new JSONObject(JSON_STRING_FOR_PATH_TEST);
+        assertThat(json, hasJsonPath("json1.json2.json3[*].field"));
+    }
+
+    @Test
+    public void verifyThatMatcherIsAbleToLocatePathWithStarWithDotExpression() throws JSONException {
+        JSONObject json = new JSONObject(JSON_STRING_FOR_PATH_TEST);
+        assertThat(json, hasJsonPath("json1.json2.json3.[*].field"));
+    }
+
+    @Test
+    public void verifyThatMatcherIsAbleFailToLocatePathWithStarExpression_whenThePathDoesNotExist() throws JSONException {
+        JSONObject json = new JSONObject(JSON_STRING_FOR_PATH_TEST);
+        assertThat(json, not(hasJsonPath("json1.json2.json3[*].field1")));
+    }
 }

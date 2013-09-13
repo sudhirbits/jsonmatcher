@@ -1,9 +1,9 @@
 package com.sudhir.json.matchers.path;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
 import org.json.JSONArray;
 import org.json.JSONException;
+
+import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * Represents a array object in the JSON path. 
@@ -53,7 +53,6 @@ public class JsonPathNodeArrayOfObjects extends AbstractJsonPathNode<JSONArray> 
 	protected int arrayIndex() {
 		// The argument check as precondition ensures that there will be a
 		// valid number contained in []
-		return Integer.valueOf(nodeKey.replaceAll("\\[", "").replaceAll("\\]",
-				""));
+		return Integer.valueOf(nodeKey.replace("[", "").replace("]", ""));
 	}
 }

@@ -1,14 +1,14 @@
 package com.sudhir.json.matchers.path;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.sudhir.json.matchers.path.JsonPathWalker.JsonPathWalkerCache.*;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
+import com.google.common.base.Splitter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.common.base.Splitter;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.sudhir.json.matchers.path.JsonPathWalker.JsonPathWalkerCache.*;
 
 public class JsonPathWalker {
 	JsonPathNode<JSONObject> topNodeInChain;
@@ -27,7 +27,7 @@ public class JsonPathWalker {
 
 	public static JsonPathWalker forPath(String path) {
 		checkArgument(path != null && path.contains("."), 
-				"Cannot walk a Json path that does not contain '.' seperated key names");
+				"Cannot walk a Json path that does not contain '.' separated key names");
 		if(containedInCache(path)) {
 			return getFromCache(path);
 		} else {
