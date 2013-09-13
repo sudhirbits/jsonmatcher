@@ -1,14 +1,12 @@
 package com.sudhir.json.matchers.path;
 
-import static org.junit.Assert.*;
-
-import static org.hamcrest.Matchers.*;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import com.sudhir.json.matchers.path.JsonPathWalker;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 public class JsonPathWalkerTest {
 
@@ -26,7 +24,9 @@ public class JsonPathWalkerTest {
 		assertNotNull(node); assertThat(node.key(), is("[0]"));
 		node = node.nextInChain();
 		assertNotNull(node); assertThat(node.key(), is("key"));
-	}
+        String print = pathWalker.print();
+        System.out.println("print = " + print);
+    }
 
 	@Test
 	public void testJsonPathWalkerArrayOfArrays() {
@@ -65,7 +65,7 @@ public class JsonPathWalkerTest {
 	@Test
 	public void testChainIsAbleToRetrieve() throws JSONException {
 		JsonPathWalker pathWalker = JsonPathWalker.forPath("json1.json2.json3[0]");
-		JsonPathNode<JSONObject> node = (JsonPathNode<JSONObject>) pathWalker.topNode();
+		JsonPathNode<JSONObject> node = pathWalker.topNode();
 		JsonTypeHolder returned = node.process(JsonTypeHolder.of(new JSONObject(JSON_FOR_TEST)));
 		System.out.println(returned);
 	}
@@ -74,7 +74,7 @@ public class JsonPathWalkerTest {
 	@Test(expected=JSONException.class)
 	public void testChainIsAbleToRetrieve1() throws JSONException {
 		JsonPathWalker pathWalker = JsonPathWalker.forPath("json1.json2.json56[0]");
-		JsonPathNode<JSONObject> node = (JsonPathNode<JSONObject>) pathWalker.topNode();
+		JsonPathNode<JSONObject> node = pathWalker.topNode();
 		JsonTypeHolder returned = node.process(JsonTypeHolder.of(new JSONObject(JSON_FOR_TEST)));
 		System.out.println(returned);
 	}
