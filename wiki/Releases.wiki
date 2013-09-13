@@ -9,3 +9,7 @@
 Features
   * hasPath Matcher
   * hasKey Matcher
+
+=== Release 1.1 planned ===
+Features
+  * wild card support for array indexes.
