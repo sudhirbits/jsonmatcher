@@ -8,22 +8,22 @@ import static org.junit.Assert.assertThat;
 
 public class JsonPathNodeBuilderTest {
     @Test(expected = IllegalArgumentException.class)
-    public void testForNode_whenNullIsPassedShouldRaiseException() throws Exception {
+    public void testForNodeWhenNullIsPassedShouldRaiseException() throws Exception {
         JsonPathNodeBuilder.forNode(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testForNode_whenEmptyIsPassedShouldRaiseException() throws Exception {
+    public void testForNodeWhenEmptyIsPassedShouldRaiseException() throws Exception {
         JsonPathNodeBuilder.forNode("");
     }
 
     @Test
-    public void testForNode_whenAnObjectSpecificationIsPassedShouldReturnAnObjectTypeOfNode() throws Exception {
+    public void testForNodeWhenAnObjectSpecificationIsPassedShouldReturnAnObjectTypeOfNode() throws Exception {
         assertThat(JsonPathNodeBuilder.forNode("test"), instanceOf(JsonPathNodeObject.class));
     }
 
     @Test
-    public void testForNode_whenAnArraySpecificationIsPassedShouldReturnAnArrayTypeOfNode() throws Exception {
+    public void testForNodeWhenAnArraySpecificationIsPassedShouldReturnAnArrayTypeOfNode() throws Exception {
         JsonPathNode<?> pathNode = JsonPathNodeBuilder.forNode("test[0]");
         assertThat(pathNode, instanceOf(JsonPathNodeObject.class));
         assertThat(pathNode.doesChainEndHere(), is(false));
@@ -32,7 +32,7 @@ public class JsonPathNodeBuilderTest {
     }
 
     @Test
-    public void testForNode_complexArraySpecificationWithStarNotation() throws Exception {
+    public void testForNodeComplexArraySpecificationWithStarNotation() throws Exception {
         JsonPathNode<?> pathNode = JsonPathNodeBuilder.forNode("test[*][0]");
         assertThat(pathNode, instanceOf(JsonPathNodeObject.class));
         assertThat(pathNode.doesChainEndHere(), is(false));

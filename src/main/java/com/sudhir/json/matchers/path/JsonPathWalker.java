@@ -11,7 +11,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static com.sudhir.json.matchers.path.JsonPathWalker.JsonPathWalkerCache.*;
 
 public class JsonPathWalker {
-	JsonPathNode<JSONObject> topNodeInChain;
+	private JsonPathNode<JSONObject> topNodeInChain;
 	
 	
 	// Not meant to be initialized, use the forPath method.

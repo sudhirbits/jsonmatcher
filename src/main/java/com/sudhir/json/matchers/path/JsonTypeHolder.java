@@ -12,7 +12,7 @@ package com.sudhir.json.matchers.path;
  * @param <W> org.json.JSONObject/org.json.JSONArray
  */
 public class JsonTypeHolder<W> {
-	W jsonTypeInstance;
+	private W jsonTypeInstance;
 	public JsonTypeHolder(W jsonTypeInstance) {
 		this.jsonTypeInstance = jsonTypeInstance;
 	}

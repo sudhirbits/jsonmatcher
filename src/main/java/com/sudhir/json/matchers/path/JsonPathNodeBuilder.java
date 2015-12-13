@@ -60,7 +60,7 @@ public class JsonPathNodeBuilder {
 
     private static JsonPathNode<JSONArray> normalArrayOrWildCardedArrayBasedOnAStarCheck(String partsOfTheArray) {
         JsonPathNode<JSONArray> pathNode;
-        if(partsOfTheArray.equals("*]")) {
+        if("*]".equals(partsOfTheArray)) {
             pathNode = new JsonPathNodeWildCardedArrayOfObjects();
         } else {
             pathNode = new JsonPathNodeArrayOfObjects("[" + partsOfTheArray);

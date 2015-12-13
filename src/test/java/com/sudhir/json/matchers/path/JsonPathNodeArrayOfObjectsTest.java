@@ -12,14 +12,6 @@ import org.junit.Test;
 
 public class JsonPathNodeArrayOfObjectsTest {
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test(expected = IllegalArgumentException.class)
 	public void verifyThatTestClassFailsFastWhenInitializedWithInvalidNodeKey() {
 		new JsonPathNodeArrayOfObjects("[invalid]");

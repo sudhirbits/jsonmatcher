@@ -30,8 +30,7 @@ public class JsonPathNodeArrayOfObjects extends AbstractJsonPathNode<JSONArray> 
 				// starts with "[0" but is not "[0]" e.g. 0123 is not valid.
 						// TODO collapse these two conditions into one with a
 						// neatly compiled REGEX.
-						(!arrayIndexBetweenBraces.startsWith("[0") || arrayIndexBetweenBraces
-								.equals("[0]")),
+						(!arrayIndexBetweenBraces.startsWith("[0") || "[0]".equals(arrayIndexBetweenBraces)),
 				// message for the exception.
 				arrayIndexBetweenBraces
 						+ " is not a valid array index for a JSON array.");
