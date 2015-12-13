@@ -67,7 +67,7 @@ public class JsonPathWalkerTest {
 		JsonPathWalker pathWalker = JsonPathWalker.forPath("json1.json2.json3[0]");
 		JsonPathNode<JSONObject> node = pathWalker.topNode();
 		JsonTypeHolder returned = node.process(JsonTypeHolder.of(new JSONObject(JSON_FOR_TEST)));
-		System.out.println(returned);
+		assertNotNull(returned);
 	}
 	
 	@SuppressWarnings("unchecked")
