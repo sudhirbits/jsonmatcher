@@ -103,3 +103,5 @@ public void verifyThatMatcherReturnsFalseWhenPathIsNotFound() throws JSONExcepti
       <scope>test</scope>
     </dependency>
 ```
+
+Source Code Quality on Codacy [![Codacy Badge](https://api.codacy.com/project/badge/grade/a72f0f7f33a34c7bb417941324b2fb34)](https://www.codacy.com/app/sudhir-ravindramohan/jsonmatcher)
